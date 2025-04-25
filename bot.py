@@ -7,12 +7,18 @@ from telegram.ext import ApplicationBuilder, ContextTypes, MessageHandler, filte
 load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.messege.reply_text("Hello! Send me a Instergram link.")
+    
+async def about(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.messege.reply_text("Send me a Instergram link and I will send you the media.")
+
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text
-    if text == "hi":
-        await update.message.reply_text("Hi")
+    if text == "instergram.com":
+        await update.message.reply_text("It is valid link.")
     else:
-        await update.message.reply_text("Hello")
+        await update.message.reply_text("This is not a valid link.")
 
 def main():
     app = ApplicationBuilder().token(BOT_TOKEN).build()
