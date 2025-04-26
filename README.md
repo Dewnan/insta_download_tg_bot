@@ -1,3 +1,3 @@
 # This is a instergram content downloader telegram bot
 
-I will update this later
+only videos are able to download for now, I will add other media typess.
